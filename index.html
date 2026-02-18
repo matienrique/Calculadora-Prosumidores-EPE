@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Prosumidores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+      
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm;
+        }
+        
+        body {
+          background-color: white;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Hide interactive elements */
+        .no-print, button, header, footer {
+          display: none !important;
+        }
+
+        /* Force show specific elements if needed */
+        .print-only {
+          display: block !important;
+        }
+
+        /* Ensure containers expand */
+        .min-h-screen {
+          min-height: auto !important;
+          height: auto !important;
+        }
+
+        /* Clean up shadows for flat paper look */
+        .shadow-md, .shadow-lg, .shadow-xl, .shadow-sm {
+          box-shadow: none !important;
+          border: 1px solid #e5e7eb;
+        }
+        
+        /* Prevent breaking inside cards */
+        .print-break-inside {
+          break-inside: avoid;
+        }
+        
+        /* Custom Header for PDF only */
+        #pdf-header {
+          display: flex !important;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          border-bottom: 2px solid #ddd;
+          padding-bottom: 10px;
+        }
+      }
+
+      /* Hide PDF header on screen */
+      #pdf-header {
+        display: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <!-- Hidden header that only appears in Print/PDF -->
+    <div id="pdf-header">
+      <img src="/logo_santafe_provincia.png" style="height: 40px;" alt="Santa Fe" />
+      <h1 style="font-size: 18px; font-weight: bold; color: #4b5563;">Informe Prosumidores</h1>
+      <img src="/logo_prosumidores.png" style="height: 40px; filter: invert(1);" alt="Prosumidores" />
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
