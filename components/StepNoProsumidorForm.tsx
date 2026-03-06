@@ -517,13 +517,17 @@ const StepNoProsumidorForm: React.FC<Props> = ({ initialData, onSubmit, onBack }
             <h3 className="text-lg font-semibold text-violet-800 mb-4 border-b pb-2 border-violet-100">Datos de Contrato</h3>
             
             <div className="mb-6">
-              <label className={labelStyle}>Potencia contratada (fuera de pico) [kW] <span className="text-red-500">*</span></label>
+              <label className={labelStyle}>Potencia contratada pico / fuera de pico [kW] <span className="text-red-500">*</span></label>
               <input
                 type="number" min="0" step="any"
                 value={gdData.contractedPower || ''}
                 onChange={(e) => handleGdNumberChange('contractedPower', e.target.value)}
                 className="w-full md:w-1/2 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-violet-500 outline-none"
               />
+              <div className="mt-2 flex items-start gap-2 text-blue-700 text-xs bg-blue-50 p-3 rounded-lg border border-blue-100 max-w-md">
+                <Info size={16} className="mt-0.5 flex-shrink-0" />
+                <span>El usuario debe completar con el valor más grande entre estas dos opciones que figura en la factura.</span>
+              </div>
             </div>
 
             <div className="mb-6">

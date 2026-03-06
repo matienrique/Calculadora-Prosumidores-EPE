@@ -20,7 +20,7 @@ const StepEpeNoProsumidorSelect: React.FC<Props> = ({ onSelect, onBack }) => {
   return (
     <div className="flex flex-col min-h-full">
       <div className="flex flex-col items-center py-10 flex-grow animate-fade-in text-slate-800">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center px-4">EPE – No soy prosumidor</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center px-4">No soy prosumidor</h2>
         <p className="text-gray-500 mb-8 text-center px-4">Seleccione su categoría tarifaria para continuar</p>
         
         <div className="w-full max-w-2xl px-4 space-y-4">

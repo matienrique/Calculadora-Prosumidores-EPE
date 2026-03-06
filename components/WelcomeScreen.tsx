@@ -18,15 +18,18 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onContinue }) => {
         
         <div className="p-8 space-y-6 text-gray-700 leading-relaxed">
           <p className="font-medium text-lg text-gray-900">
-            Este Simulador de Facturas para Prosumidores es una herramienta pensada para ayudarte a visualizar los ahorros obtenidos por medio de tu sistema de generación renovable conectado a la red. Los resultados deben interpretarse como una estimación orientativa, útil para visualizar posibles ahorros y beneficios, pero no como una factura definitiva.
+            Este Simulador de Facturas es una herramienta pensada para ayudarte a visualizar los ahorros obtenidos por medio de tu sistema de generación renovable conectado a la red eléctrica. Los resultados deben interpretarse como una estimación orientativa, útil para visualizar de manera simple y rápida los beneficios económicos y ambientales, en caso de que ya sea un Prosumidor o estés interesado en adherir a Prosumidores 4.0.  
+
           </p>
           
           <p>
-            Los montos calculados pueden presentar variaciones respecto de la facturación efectiva, debido a posibles actualizaciones tarifarias, modificaciones en los esquemas de incentivos, variaciones en impuestos y cargos aplicables, en relación al período de facturación simulado. 
+            Los importes calculados pueden presentar variaciones debido a posibles actualizaciones tarifarias y modificaciones en los esquemas de incentivos en relación al período de facturación simulado.
+ 
           </p>
           
           <p className="text-sm bg-gray-50 p-4 rounded-xl border border-gray-100 italic">
             La información proporcionada por el simulador tiene carácter informativo y no reviste condición de liquidación oficial ni genera derecho adquirido alguno, debiendo considerarse como una herramienta de apoyo para la toma de decisiones.
+
           </p>
           
           <div className="pt-6 flex justify-center">
