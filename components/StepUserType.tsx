@@ -26,8 +26,11 @@ const StepUserType: React.FC<Props> = ({ onSelect }) => {
                   <p className="text-sm text-gray-500"></p>
                 </div>
               </div>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 Mediante el siguiente simulador podrás estimar los ahorros económicos en tu factura eléctrica o calcular qué potencia de energía renovable podés instalar por formar parte del Programa Prosumidores 4.0
+              </p>
+              <p className="text-sm text-violet-700 mb-8 font-medium">
+                Podés consultar el manual de usuario cliqueando <a href="https://docs.google.com/document/d/1w2bWxg6J2fYoaCvwZxkTuyHLcnjo52FcAU8H5cdSDz8/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="underline hover:text-violet-900 transition-colors">aquí</a>
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
