@@ -167,8 +167,10 @@ const StepResults: React.FC<Props> = ({ results, userType, onBack, onReset, onSh
           {/* Comparación de Facturas */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl shadow-md border-t-4 bg-orange-50 border-orange-500">
-              <h3 className="text-sm font-bold text-gray-900 mb-1 uppercase tracking-wider">Factura Estimada (Prosumidor)</h3>
-              <p className="text-4xl font-extrabold text-gray-900 my-2">{formatCurrency(isProsumidor ? results.billWithProsumers : results.billWithProsumers)}</p>
+              <h3 className="text-sm font-bold text-gray-900 mb-1 uppercase tracking-wider">
+                {isProsumidor ? 'Factura actual' : 'Factura Estimada (Prosumidor)'}
+              </h3>
+              <p className="text-4xl font-extrabold text-gray-900 my-2">{formatCurrency(results.billWithProsumers)}</p>
               <span className="inline-block px-3 py-1 bg-white text-xs font-bold rounded-full shadow-sm text-gray-900 border border-gray-100">Con Prosumidores 4.0</span>
               {results.billWithProsumers < 0 && (
                 <div className="mt-4 bg-white p-3 rounded-lg border-l-4 border-violet-500 flex items-start gap-3 shadow-sm">
@@ -178,7 +180,9 @@ const StepResults: React.FC<Props> = ({ results, userType, onBack, onReset, onSh
               )}
             </div>
             <div className="bg-white p-6 rounded-2xl shadow-md border-t-4 border-gray-300">
-              <h3 className="text-sm font-semibold text-gray-500 mb-1 uppercase tracking-wider">Tu Factura Actual</h3>
+              <h3 className="text-sm font-semibold text-gray-500 mb-1 uppercase tracking-wider">
+                {isProsumidor ? 'Factura estimada (No Prosumidor)' : 'Tu Factura Actual'}
+              </h3>
               <p className="text-4xl font-extrabold text-gray-900 my-2">{formatCurrency(results.billWithoutProsumers)}</p>
               <span className="inline-block px-3 py-1 bg-gray-100 text-xs font-bold rounded-full text-gray-500">Sin Prosumidores 4.0</span>
             </div>
