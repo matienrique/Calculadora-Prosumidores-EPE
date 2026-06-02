@@ -129,7 +129,10 @@ const StepResults: React.FC<Props> = ({ results, userType, onBack, onReset, onSh
 
   const isResidencial = userType === UserType.EPE_NO_PROSUMIDOR_RESIDENCIAL;
   const isGDUser = (userType === UserType.EPE_NO_PROSUMIDOR_GD) || isGD;
-  const potenciaMax = isGD ? (results.details?.["Potencia Contratada (kW)"] as number || 0) : (results.details?.["Potencia Estimada (kW)"] as number || 0);
+  let potenciaMax = isGD ? (results.details?.["Potencia Contratada (kW)"] as number || 0) : (results.details?.["Potencia Estimada (kW)"] as number || 0);
+  if (userType === UserType.EPE_NO_PROSUMIDOR_GD && results.details?.["Calculated Potencia Max (kW)"] !== undefined) {
+    potenciaMax = results.details["Calculated Potencia Max (kW)"] as number;
+  }
 
   const invBase = isResidencial ? GLOBAL_CONSTANTS.inversionResidencial : GLOBAL_CONSTANTS.inversionNoResidencial;
   const inversionInicial = potenciaMax * GLOBAL_CONSTANTS.tipoCambio * invBase;

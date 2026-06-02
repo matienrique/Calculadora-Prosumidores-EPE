@@ -299,6 +299,11 @@ export const calculateNoProsumidor = (data: NoProsumidorData): CalculationResult
     if (!gd) throw new Error("GD Data missing");
     
     const generacionPromedio = (gd.contractedPower * 1629.1) / 12;
+    const sumPico = gd.consumptionTable.reduce((sum, row) => sum + (row.pico || 0), 0);
+    const sumResto = gd.consumptionTable.reduce((sum, row) => sum + (row.resto || 0), 0);
+    const sumValle = gd.consumptionTable.reduce((sum, row) => sum + (row.valle || 0), 0);
+    const totalImputed = sumPico + sumResto + sumValle;
+    const calculatedPotenciaMax = (totalImputed * 2) / 1629.1;
     const lastRow = gd.consumptionTable[5] || { pico: 0, resto: 0, valle: 0 };
     const consumoTotalRealPico = lastRow.pico;
     const consumoTotalRealResto = lastRow.resto;
@@ -376,6 +381,7 @@ export const calculateNoProsumidor = (data: NoProsumidorData): CalculationResult
       treesEquivalent: Math.round(co2 / (10/12)),
       details: { 
         "Potencia Contratada (kW)": gd.contractedPower,
+        "Calculated Potencia Max (kW)": calculatedPotenciaMax,
         "Generación Promedio (kWh)": generacionPromedio,
         "Generada Pico (kWh)": energiaGeneradaPico,
         "Generada Resto (kWh)": energiaGeneradaResto,
